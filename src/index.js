@@ -20,13 +20,14 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/add',(req,res)=>{
+
     let num1 = req.body.num1;
     let num2 = req.body.num2;
 
     let msgResponse = {
         status:"error",
         message:"Invalid data types",
-        result: undefined
+        sum: undefined
     }
 
     if(typeof num1 === "string" || typeof num2 === "string" ){
@@ -50,7 +51,7 @@ app.post('/add',(req,res)=>{
 
         msgResponse.status="success";
         msgResponse.message="the sum of given two numbers";
-        msgResponse.result = num1+num2;
+        msgResponse.sum = num1+num2;
         res.send(msgResponse);
         return;
 
@@ -66,7 +67,7 @@ app.post('/sub',(req,res)=>{
     let msgResponse = {
         status:"error",
         message:"Invalid data types",
-        result: undefined
+        difference: undefined
     }
 
     if(typeof num1 === "string" || typeof num2 === "string" ){
@@ -90,7 +91,7 @@ app.post('/sub',(req,res)=>{
 
         msgResponse.status="success";
         msgResponse.message="the difference of given two numbers";
-        msgResponse.result = num1-num2;
+        msgResponse.difference = num1-num2;
         res.send(msgResponse);
         return;
 
